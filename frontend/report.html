@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CrowdAid — Report Emergency</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <script src="https://cdn.socket.io/4.6.2/socket.io.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a class="nav-logo" href="index.html">CROWD<span>AID</span></a>
+    <div class="nav-pill"><div class="live-dot"></div>VERIFIED</div>
+  </nav>
+
+  <div class="report-page">
+    <div class="r-subheader">
+      <span class="r-subtitle">📍 New Emergency Report</span>
+      <span class="badge badge-green" style="margin-left:auto;">🔒 OTP Verified</span>
+    </div>
+
+    <!-- MAP MOCK -->
+    <div class="map-block">
+      <div class="map-grid-bg"></div>
+      <div class="map-road-h" style="top:33%"></div>
+      <div class="map-road-h" style="top:62%"></div>
+      <div class="map-road-v" style="left:28%"></div>
+      <div class="map-road-v" style="left:70%"></div>
+      <div class="map-wave"></div>
+      <div class="map-pin">
+        <div class="pin-body"><span>🚨</span></div>
+        <div class="pin-shadow"></div>
+      </div>
+      <!-- Nearby people dots -->
+      <div class="ndot" style="top:22%;left:36%;animation-delay:0s"></div>
+      <div class="ndot" style="top:58%;left:68%;animation-delay:.5s"></div>
+      <div class="ndot" style="top:38%;left:76%;animation-delay:1s"></div>
+      <div class="ndot" style="top:70%;left:21%;animation-delay:1.5s"></div>
+      <div class="ndot" style="top:15%;left:60%;animation-delay:.8s"></div>
+      <div class="map-lbl">📍 YOUR LOCATION DETECTED &nbsp;•&nbsp; 5 PEOPLE NEARBY</div>
+    </div>
+
+    <!-- FORM -->
+    <div class="report-form">
+
+      <!-- EMERGENCY TYPE -->
+      <div class="sec-line">Emergency Type</div>
+      <div class="etype-grid">
+        <div class="etype"><span class="ei">🫀</span><span>Cardiac Arrest</span></div>
+        <div class="etype"><span class="ei">🔥</span><span>Fire</span></div>
+        <div class="etype"><span class="ei">🚗</span><span>Accident</span></div>
+        <div class="etype"><span class="ei">🤕</span><span>Injury</span></div>
+        <div class="etype"><span class="ei">🌊</span><span>Flood</span></div>
+        <div class="etype"><span class="ei">⚡</span><span>Other</span></div>
+      </div>
+
+      <!-- SEVERITY -->
+      <div class="sec-line">Severity Level</div>
+      <div class="sev-row">
+        <button class="sev low">🟢 Low</button>
+        <button class="sev med">🟡 Medium</button>
+        <button class="sev high">🔴 High</button>
+      </div>
+
+      <!-- DESCRIPTION -->
+      <div class="sec-line">Brief Description</div>
+      <textarea class="inp" id="desc-inp" rows="2"
+        placeholder="e.g. Man collapsed near Gate 2, not breathing, approx 60 years old..."
+        style="margin-bottom:1.5rem;"></textarea>
+
+      <!-- LOCATION NOTE -->
+      <div class="sec-line">Location</div>
+      <input class="inp" type="text"
+        placeholder="📍 Auto-detected: Central Mall, Gate 2 (tap to edit)"
+        style="margin-bottom:1.5rem;" readonly/>
+
+      <!-- EMERGENCY CONTACTS -->
+      <div class="sec-line">Emergency Contacts (Auto-Notify)</div>
+      <input class="inp" type="tel"
+        placeholder="📲 Contact 1 phone number"
+        style="margin-bottom:.7rem;"/>
+      <input class="inp" type="tel"
+        placeholder="📲 Contact 2 phone number (optional)"
+        style="margin-bottom:1.5rem;"/>
+
+      <!-- CONFIRMATION -->
+      <div class="confirm-box">
+        <input type="checkbox" id="confirm-cb"/>
+        <div class="confirm-txt">
+          <b>I confirm this is a real emergency.</b><br>
+          False reports are tracked via my verified number and result in a permanent ban. I understand my emergency contacts will be notified.
+        </div>
+      </div>
+
+      <!-- FAKE ALERT WARNING -->
+      <div style="background:rgba(255,214,0,.04);border:1px solid rgba(255,214,0,.12);border-radius:10px;padding:.9rem 1.1rem;margin-bottom:1.5rem;font-size:.8rem;color:#BBBB88;line-height:1.55;">
+        ⚠️ <b style="color:var(--yellow);">Anti-Abuse System Active:</b> This report requires community confirmation from 2 nearby users before going fully live. Unconfirmed alerts expire in 60 seconds.
+      </div>
+
+      <button class="btn btn-red w-full btn-lg" id="launch-btn" style="justify-content:center;">
+        🚀 Launch Live Coordination Room
+      </button>
+
+      <div style="text-align:center;margin-top:1rem;">
+        <a href="index.html" style="font-size:.82rem;color:var(--muted);">← Cancel and go back</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+  <script src="js/main.js"></script>
+</body>
+</html>

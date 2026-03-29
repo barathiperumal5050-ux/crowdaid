@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CrowdAid — How It Works</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <script src="https://cdn.socket.io/4.6.2/socket.io.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a class="nav-logo" href="index.html">CROWD<span>AID</span></a>
+    <div class="nav-links">
+      <a href="dashboard.html">Dashboard</a>
+    </div>
+    <div class="nav-pill"><div class="live-dot"></div>SYSTEM LIVE</div>
+  </nav>
+
+  <div class="about-page">
+    <div class="about-hero">
+      <div class="section-tag">// About the Project</div>
+      <h1 class="land-h1" style="font-size:clamp(3rem,8vw,5.5rem);">HOW<br><em>CROWDAID</em><br>WORKS</h1>
+      <p class="land-sub" style="max-width:580px;margin:1rem auto 0;">The world's first real-time crowd coordination platform for emergencies. No download. No registration. Just open and help.</p>
+    </div>
+
+    <div class="about-body">
+
+      <!-- THE PROBLEM -->
+      <h2>The <em>Real</em> Problem</h2>
+      <p>Every day, thousands of people witness emergencies — cardiac arrests, accidents, fires — and do nothing. Not because they don't care, but because of a well-documented psychological phenomenon called <strong style="color:var(--text);">Bystander Paralysis</strong>.</p>
+      <p>Each bystander assumes someone else has already called for help. Each person feels unqualified to act. The crowd stands frozen while precious minutes tick away. Studies show that bystander CPR can double or triple survival rates in cardiac arrest — but 70% of bystanders freeze and do nothing.</p>
+      <p>Existing tools like 911 only connect you to dispatch — not to the other witnesses already at the scene. There is no tool that coordinates the crowd.</p>
+
+      <!-- THE SOLUTION -->
+      <h2>The <em>Solution</em></h2>
+      <p>CrowdAid is the missing link between witnessing an emergency and professional help arriving. It transforms a panicked, uncoordinated crowd into a structured first-response team — in under 30 seconds, with no app download required.</p>
+
+      <!-- HOW IT WORKS STEPS -->
+      <h2>Step-by-Step <em>Flow</em></h2>
+      <ul>
+        <li><span>📍</span> <div><strong>Witness opens CrowdAid</strong> in any browser. Geolocation auto-detects the scene.</div></li>
+        <li><span>🔐</span> <div><strong>OTP verification</strong> confirms the reporter's identity. Fake alerts are blocked before they go live.</div></li>
+        <li><span>👥</span> <div><strong>Community confirmation</strong> — 2 nearby users confirm the emergency before it fully activates.</div></li>
+        <li><span>📡</span> <div><strong>Live room opens</strong> — nearby people receive a silent browser notification. SMS fallback activates for those without internet.</div></li>
+        <li><span>✅</span> <div><strong>Tasks auto-assign</strong> based on pre-registered skills (CPR, nursing, first aid). Everyone knows exactly what to do.</div></li>
+        <li><span>⏱️</span> <div><strong>Countdown timer</strong> and survival statistics motivate immediate action in the crowd.</div></li>
+        <li><span>📲</span> <div><strong>Family auto-notified</strong> — emergency contacts receive an SMS with the victim's live location.</div></li>
+        <li><span>🚑</span> <div><strong>Ambulance checks in</strong> — the room closes, all location data is permanently deleted.</div></li>
+      </ul>
+
+      <!-- CHALLENGES SOLVED -->
+      <h2>Every Challenge, <em>Solved</em></h2>
+      <ul>
+        <li><span>😬</span> <div><strong>Fake Alerts:</strong> OTP phone verification + 2-user community confirmation. False reporters get permanently banned.</div></li>
+        <li><span>📡</span> <div><strong>No Internet:</strong> Automatic SMS fallback ensures coordination continues even in low-connectivity zones.</div></li>
+        <li><span>🛡️</span> <div><strong>Helper Safety:</strong> Mandatory safety briefing + inactivity monitoring + Good Samaritan law display.</div></li>
+        <li><span>🔐</span> <div><strong>Privacy:</strong> Zero passive tracking. Location shared only in active rooms. All data deleted on room close.</div></li>
+        <li><span>📲</span> <div><strong>Family Unaware:</strong> Emergency contacts auto-notified via SMS with live location link.</div></li>
+      </ul>
+
+      <!-- COMPETITOR TABLE -->
+      <h2>How We Compare to <em>Existing Apps</em></h2>
+      <table class="competitor-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>PulsePoint</th>
+            <th>GoodSAM</th>
+            <th>Bystander App</th>
+            <th>CrowdAid ★</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>No app download needed</td>
+            <td class="check-n">✗</td>
+            <td class="check-n">✗</td>
+            <td class="check-n">✗</td>
+            <td class="check-y">✓</td>
+          </tr>
+          <tr>
+            <td>Works for all emergency types</td>
+            <td class="check-n">✗</td>
+            <td class="check-n">✗</td>
+            <td class="check-n">✗</td>
+            <td class="check-y">✓</td>
+          </tr>
+          <tr>
+            <td>Crowd task coordination</td>
+            <td class="check-n">✗</td>
+            <td class="check-n">✗</td>
+            <td class="check-n">✗</td>
+            <td class="check-y">✓</td>
+          </tr>
+          <tr>
+            <td>Offline SMS fallback</td>
+            <td class="check-n">✗</td>
+            <td class="check-n">✗</td>
+            <td class="check-n">✗</td>
+            <td class="check-y">✓</td>
+          </tr>
+          <tr>
+            <td>Fake alert prevention</td>
+            <td class="check-n">✗</td>
+            <td class="check-n">✗</td>
+            <td class="check-n">✗</td>
+            <td class="check-y">✓</td>
+          </tr>
+          <tr>
+            <td>Family auto-notify</td>
+            <td class="check-n">✗</td>
+            <td class="check-n">✗</td>
+            <td class="check-n">✗</td>
+            <td class="check-y">✓</td>
+          </tr>
+          <tr>
+            <td>Zero passive tracking</td>
+            <td class="check-n">✗</td>
+            <td class="check-n">✗</td>
+            <td class="check-n">✗</td>
+            <td class="check-y">✓</td>
+          </tr>
+          <tr class="ours">
+            <td colspan="5" style="text-align:center;color:var(--red);font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;">★ CROWDAID — THE ONLY COMPLETE SOLUTION</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- TECH STACK -->
+      <h2>Recommended <em>Tech Stack</em></h2>
+      <ul>
+        <li><span>⚛️</span><div><strong>Frontend:</strong> React.js / Next.js — fast, SEO-friendly, PWA support</div></li>
+        <li><span>🔌</span><div><strong>Real-time:</strong> Socket.io / WebSockets — live room coordination</div></li>
+        <li><span>🗄️</span><div><strong>Backend:</strong> Node.js + Express — fast API server</div></li>
+        <li><span>📦</span><div><strong>Database:</strong> MongoDB — flexible, location-query support</div></li>
+        <li><span>🗺️</span><div><strong>Maps:</strong> Google Maps API / Leaflet.js — geolocation & map display</div></li>
+        <li><span>📲</span><div><strong>SMS / OTP:</strong> Twilio or MSG91 — OTP delivery + SMS fallback</div></li>
+        <li><span>☁️</span><div><strong>Hosting:</strong> Vercel (frontend) + Railway/Render (backend)</div></li>
+      </ul>
+
+      <div style="text-align:center;margin-top:3rem;">
+        <a href="otp.html" class="btn btn-red btn-lg" style="margin-right:1rem;">🚨 Try the Platform</a>
+        <a href="dashboard.html" class="btn btn-ghost btn-lg">📊 View Dashboard</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-logo">CROWD<span>AID</span></div>
+    <p>Built to turn bystanders into first responders. Every second counts.</p>
+    <div class="footer-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="about.html">How It Works</a>
+      <a href="otp.html">Report Emergency</a>
+    </div>
+    <div class="footer-bottom">© 2025 CrowdAid. Zero data sold. Zero ads. Zero passive tracking.</div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

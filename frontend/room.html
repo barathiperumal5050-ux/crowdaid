@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CrowdAid — Live Room</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <script src="https://cdn.socket.io/4.6.2/socket.io.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a class="nav-logo" href="index.html">CROWD<span>AID</span></a>
+    <div class="nav-pill"><div class="live-dot"></div>LIVE ROOM</div>
+  </nav>
+
+  <div class="room-page">
+
+    <!-- ROOM HEADER -->
+    <div class="room-header">
+      <div class="room-alert-row">
+        <span class="badge badge-live">⚡ LIVE</span>
+        <span class="room-type-name" id="room-type-label">🫀 Cardiac Arrest</span>
+      </div>
+      <div class="room-location">📍 Central Mall, Gate 2 — 43m from you</div>
+      <div class="room-meta">
+        <div class="rmeta">👥 <b>6</b>&nbsp;helpers in room</div>
+        <div class="rmeta">🕐 Started&nbsp;<b>3 min ago</b></div>
+        <div class="rmeta">🚑 ETA&nbsp;<b>~5 min</b></div>
+        <div class="rmeta">🔐 Room ID:&nbsp;<b style="color:var(--red);">CR-4821</b></div>
+      </div>
+    </div>
+
+    <!-- TIMER + SURVIVAL -->
+    <div class="timer-block">
+      <div>
+        <div class="timer-display" id="room-timer">05:00</div>
+        <div class="timer-sub">UNTIL AMBULANCE ARRIVES</div>
+      </div>
+      <div class="survival-col">
+        <div class="surv-label">Survival chance with CPR now</div>
+        <div class="bar-track"><div class="bar-fill" id="surv-bar" style="width:70%"></div></div>
+        <div class="surv-pct" id="surv-pct">70% → drops 10% per min</div>
+      </div>
+    </div>
+
+    <!-- NOTICES -->
+    <div class="room-notice notice-safety">
+      ⚠️&nbsp;<span><b>Stay safe!</b> Only help from a safe position. Your wellbeing is the top priority.</span>
+    </div>
+    <div class="room-notice notice-sms" style="margin-top:.6rem;">
+      📡&nbsp;<span><b>SMS Fallback active</b> — 2 helpers notified via SMS (low-connectivity zone)</span>
+    </div>
+
+    <!-- PEOPLE IN ROOM -->
+    <div class="people-section">
+      <div class="sec-line">People In Room</div>
+      <div class="people-chips">
+        <div class="p-chip">
+          <div class="avatar av-r">AK</div>
+          <div><div class="p-name">Arjun K.</div><span class="p-skill">CPR Trained</span></div>
+        </div>
+        <div class="p-chip">
+          <div class="avatar av-g">SR</div>
+          <div><div class="p-name">Sneha R.</div><span class="p-skill">Nurse</span></div>
+        </div>
+        <div class="p-chip">
+          <div class="avatar av-b">MV</div>
+          <div><div class="p-name">Mihir V.</div><span class="p-skill">Bystander</span></div>
+        </div>
+        <div class="p-chip">
+          <div class="avatar av-y">PD</div>
+          <div><div class="p-name">Priya D.</div><span class="p-skill">First Aid</span></div>
+        </div>
+        <div class="p-chip">
+          <div class="avatar" style="background:rgba(255,255,255,.08);color:var(--muted);">+2</div>
+          <div><div class="p-name" style="color:var(--muted);">Others</div><span class="p-skill">Nearby</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LIVE TASK CHECKLIST -->
+    <div class="tasks-section">
+      <div class="sec-line">Live Task Checklist — Click to Toggle</div>
+
+      <div class="task-card done" data-task-id="t1">
+        <div class="task-check">✓</div>
+        <div class="task-info">
+          <div class="task-title">Call 911 / Emergency Services</div>
+          <div class="task-who">✅ Completed by Mihir V. — 2 min ago</div>
+        </div>
+        <div class="task-tag t-done">DONE</div>
+      </div>
+
+      <div class="task-card" data-task-id="t3">
+        <div class="task-check"></div>
+        <div class="task-info">
+          <div class="task-title">Start CPR on victim</div>
+          <div class="task-who">⏳ Arjun K. is heading over — 30 sec away</div>
+        </div>
+        <div class="task-tag t-urgent">URGENT</div>
+      </div>
+
+      <div class="task-card" data-task-id="t2">
+        <div class="task-check"></div>
+        <div class="task-info">
+          <div class="task-title">Find AED Defibrillator nearby</div>
+          <div class="task-who">👀 Searching — anyone seen one?</div>
+        </div>
+        <div class="task-tag t-open">OPEN</div>
+      </div>
+
+      <div class="task-card" data-task-id="t2">
+        <div class="task-check"></div>
+        <div class="task-info">
+          <div class="task-title">Clear crowd — create breathing space</div>
+          <div class="task-who">👋 Sneha R. is managing the crowd</div>
+        </div>
+        <div class="task-tag t-open">OPEN</div>
+      </div>
+
+      <div class="task-card" data-task-id="t2">
+        <div class="task-check"></div>
+        <div class="task-info">
+          <div class="task-title">Stay at entrance to guide ambulance</div>
+          <div class="task-who">📍 Volunteer needed at Gate 2 entrance</div>
+        </div>
+        <div class="task-tag t-open">OPEN</div>
+      </div>
+
+      <div class="task-card done">
+        <div class="task-check">✓</div>
+        <div class="task-info">
+          <div class="task-title">Share live location with family of victim</div>
+          <div class="task-who">✅ Auto-notified via SMS — 1 min ago</div>
+        </div>
+        <div class="task-tag t-done">DONE</div>
+      </div>
+
+      <!-- CPR GUIDE BOX -->
+      <div style="background:rgba(255,32,32,.05);border:1px solid rgba(255,32,32,.15);border-radius:12px;padding:1.2rem;margin-top:.5rem;">
+        <div style="font-weight:700;font-size:.9rem;margin-bottom:.8rem;">🫀 CPR Quick Guide</div>
+        <div style="font-size:.82rem;color:#AAAACC;line-height:1.7;">
+          <div>1. Lay person flat on their back</div>
+          <div>2. Tilt head back, lift chin</div>
+          <div>3. Give 30 chest compressions (hard & fast)</div>
+          <div>4. Give 2 rescue breaths</div>
+          <div>5. Repeat until help arrives</div>
+        </div>
+        <div style="margin-top:.8rem;font-family:var(--font-mono);font-size:.68rem;color:var(--red);">
+          Rate: 100-120 compressions/min
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="room-footer">
+      <a href="dashboard.html" class="btn btn-ghost btn-sm">← Dashboard</a>
+      <button class="btn btn-red" id="close-room-btn">🚑 Ambulance Arrived — Close Room</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CrowdAid — Verify Identity</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <script src="https://cdn.socket.io/4.6.2/socket.io.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a class="nav-logo" href="index.html">CROWD<span>AID</span></a>
+    <div class="nav-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="about.html">How It Works</a>
+    </div>
+    <div class="nav-pill"><div class="live-dot"></div>SYSTEM LIVE</div>
+  </nav>
+
+  <div class="otp-page">
+    <div class="otp-card">
+      <div class="step-back" data-back="index.html">← Back to Home</div>
+      <div class="otp-icon-wrap">🔐</div>
+      <h2 class="otp-h">VERIFY IDENTITY</h2>
+      <p class="otp-p">We verify every reporter to prevent fake alerts and protect the community. Your number is <strong>never stored</strong> after verification.</p>
+
+      <!-- PHONE STEP -->
+      <label class="inp-label" for="phone-inp">YOUR PHONE NUMBER</label>
+      <input class="inp" type="tel" id="phone-inp" placeholder="📱 +91 98765 43210" maxlength="15" style="margin-bottom:1rem;"/>
+      <button class="btn btn-red w-full" id="send-otp-btn" style="justify-content:center;">
+        Send OTP →
+      </button>
+
+      <!-- OTP STEP -->
+      <div id="otp-step" class="hidden" style="margin-top:1.8rem;">
+        <p style="font-size:.82rem;color:var(--muted);margin-bottom:.9rem;text-align:center;">
+          Enter the 6-digit code sent to your phone
+        </p>
+        <div class="otp-row">
+          <input class="otp-box" maxlength="1" type="text" inputmode="numeric"/>
+          <input class="otp-box" maxlength="1" type="text" inputmode="numeric"/>
+          <input class="otp-box" maxlength="1" type="text" inputmode="numeric"/>
+          <input class="otp-box" maxlength="1" type="text" inputmode="numeric"/>
+          <input class="otp-box" maxlength="1" type="text" inputmode="numeric"/>
+          <input class="otp-box" maxlength="1" type="text" inputmode="numeric"/>
+        </div>
+        <button class="btn btn-green w-full" id="verify-otp-btn" style="justify-content:center;margin-bottom:.8rem;">
+          ✅ Verify & Continue
+        </button>
+        <button class="btn btn-ghost w-full" id="resend-btn" style="justify-content:center;font-size:.82rem;" disabled>
+          Resend in 30s
+        </button>
+      </div>
+
+      <!-- PRIVACY NOTE -->
+      <div class="privacy-box">
+        <b>🔒 Zero Passive Tracking</b> — Your location is shared <em>only</em> inside an active emergency room. All personal data is permanently deleted when the room closes. We never sell data.
+      </div>
+
+      <!-- WHAT HAPPENS NEXT -->
+      <div style="margin-top:1.5rem;text-align:left;">
+        <div class="sec-line">What happens next</div>
+        <div style="display:flex;flex-direction:column;gap:.6rem;">
+          <div style="display:flex;align-items:center;gap:.7rem;font-size:.82rem;color:var(--muted);">
+            <span>📍</span> Your location is pinpointed on a live map
+          </div>
+          <div style="display:flex;align-items:center;gap:.7rem;font-size:.82rem;color:var(--muted);">
+            <span>📡</span> Nearby people get a silent alert
+          </div>
+          <div style="display:flex;align-items:center;gap:.7rem;font-size:.82rem;color:var(--muted);">
+            <span>✅</span> A live coordination room opens instantly
+          </div>
+          <div style="display:flex;align-items:center;gap:.7rem;font-size:.82rem;color:var(--muted);">
+            <span>📲</span> Your emergency contacts are auto-notified
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+  <script src="js/main.js"></script>
+</body>
+</html>

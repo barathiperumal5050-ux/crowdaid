@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CrowdAid — Dashboard</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <script src="https://cdn.socket.io/4.6.2/socket.io.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a class="nav-logo" href="index.html">CROWD<span>AID</span></a>
+    <div class="nav-links">
+      <a href="about.html">How It Works</a>
+    </div>
+    <div class="nav-pill"><div class="live-dot"></div>SYSTEM LIVE</div>
+  </nav>
+
+  <div class="dash-page">
+    <div class="dash-hero">
+      <h2 class="dash-h">📊 CROWDAID DASHBOARD</h2>
+      <p class="dash-p">Real-time platform overview — live emergencies, impact stats, and system health</p>
+    </div>
+
+    <!-- KPI CARDS -->
+    <div class="kpi-grid">
+      <div class="kpi-card" id="kpi-report">
+        <div class="kpi-top">
+          <div class="kpi-icon ki-r">🚨</div>
+          <div><div class="kpi-title">Report Emergency</div><div class="kpi-sub">OTP verified, instant room</div></div>
+        </div>
+        <div class="kpi-num red">TAP →</div>
+        <div class="kpi-desc">Be the first coordinator. Open a live room in seconds. No download needed.</div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-top">
+          <div class="kpi-icon ki-g">✅</div>
+          <div><div class="kpi-title">Lives Coordinated</div><div class="kpi-sub">This month</div></div>
+        </div>
+        <div class="kpi-num green" data-count="1247">0</div>
+        <div class="kpi-desc">Emergencies where crowd coordination was successfully activated across the network.</div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-top">
+          <div class="kpi-icon ki-b">📡</div>
+          <div><div class="kpi-title">SMS Fallbacks Used</div><div class="kpi-sub">No-internet zones</div></div>
+        </div>
+        <div class="kpi-num blue" data-count="342">0</div>
+        <div class="kpi-desc">Times our offline SMS fallback activated to reach helpers in low-connectivity areas.</div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-top">
+          <div class="kpi-icon ki-y">⚠️</div>
+          <div><div class="kpi-title">Fake Alerts Blocked</div><div class="kpi-sub">OTP + confirmation</div></div>
+        </div>
+        <div class="kpi-num yellow" data-count="89">0</div>
+        <div class="kpi-desc">Fraudulent emergency reports blocked by our dual-layer OTP and community confirmation system.</div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-top">
+          <div class="kpi-icon ki-r">⏱️</div>
+          <div><div class="kpi-title">Avg Response Time</div><div class="kpi-sub">Crowd to task</div></div>
+        </div>
+        <div class="kpi-num red">47s</div>
+        <div class="kpi-desc">Average time from emergency report to first task being completed by a nearby helper.</div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-top">
+          <div class="kpi-icon ki-g">🗑️</div>
+          <div><div class="kpi-title">Data Deleted</div><div class="kpi-sub">After room close</div></div>
+        </div>
+        <div class="kpi-num green">100%</div>
+        <div class="kpi-desc">Every piece of location and personal data is permanently deleted when a room closes.</div>
+      </div>
+    </div>
+
+    <!-- ACTIVE ROOMS -->
+    <div class="active-section">
+      <div class="sec-line">Active Live Rooms Now</div>
+      <div class="rooms-list">
+
+        <div class="room-row">
+          <div class="room-blink"></div>
+          <div class="room-row-info">
+            <div class="room-row-name">🫀 Cardiac Arrest — Central Mall, Gate 2</div>
+            <div class="room-row-detail">Started 3 min ago &nbsp;•&nbsp; Ambulance ETA ~5 min &nbsp;•&nbsp; 🔴 HIGH severity</div>
+          </div>
+          <div class="room-row-people">6 helpers</div>
+        </div>
+
+        <div class="room-row">
+          <div class="room-blink"></div>
+          <div class="room-row-info">
+            <div class="room-row-name">🚗 Road Accident — NH-48, KM Marker 24</div>
+            <div class="room-row-detail">Started 7 min ago &nbsp;•&nbsp; Ambulance ETA ~2 min &nbsp;•&nbsp; 🟡 MEDIUM severity</div>
+          </div>
+          <div class="room-row-people">4 helpers</div>
+        </div>
+
+        <div class="room-row">
+          <div class="room-blink"></div>
+          <div class="room-row-info">
+            <div class="room-row-name">🤕 Injury — Sector 14 Park, Near Fountain</div>
+            <div class="room-row-detail">Started 1 min ago &nbsp;•&nbsp; Ambulance ETA ~8 min &nbsp;•&nbsp; 🟢 LOW severity</div>
+          </div>
+          <div class="room-row-people">2 helpers</div>
+        </div>
+
+        <div class="room-row">
+          <div class="room-blink"></div>
+          <div class="room-row-info">
+            <div class="room-row-name">🔥 Fire — Building B, Floor 3, Sector 22</div>
+            <div class="room-row-detail">Started 11 min ago &nbsp;•&nbsp; Fire brigade ETA ~1 min &nbsp;•&nbsp; 🔴 HIGH severity</div>
+          </div>
+          <div class="room-row-people">9 helpers</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SYSTEM STATUS -->
+    <div style="padding:0 5vw 3rem;">
+      <div class="sec-line">System Status</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.8rem;">
+        <div style="background:var(--bg2);border:1px solid rgba(0,230,118,.15);border-radius:10px;padding:1rem;display:flex;align-items:center;gap:.8rem;">
+          <span style="color:var(--green);font-size:1.2rem;">✅</span>
+          <div><div style="font-size:.82rem;font-weight:600;">OTP Service</div><div style="font-size:.72rem;color:var(--green);">Operational</div></div>
+        </div>
+        <div style="background:var(--bg2);border:1px solid rgba(0,230,118,.15);border-radius:10px;padding:1rem;display:flex;align-items:center;gap:.8rem;">
+          <span style="color:var(--green);font-size:1.2rem;">✅</span>
+          <div><div style="font-size:.82rem;font-weight:600;">SMS Fallback</div><div style="font-size:.72rem;color:var(--green);">Operational</div></div>
+        </div>
+        <div style="background:var(--bg2);border:1px solid rgba(0,230,118,.15);border-radius:10px;padding:1rem;display:flex;align-items:center;gap:.8rem;">
+          <span style="color:var(--green);font-size:1.2rem;">✅</span>
+          <div><div style="font-size:.82rem;font-weight:600;">Live Rooms</div><div style="font-size:.72rem;color:var(--green);">4 Active</div></div>
+        </div>
+        <div style="background:var(--bg2);border:1px solid rgba(0,230,118,.15);border-radius:10px;padding:1rem;display:flex;align-items:center;gap:.8rem;">
+          <span style="color:var(--green);font-size:1.2rem;">✅</span>
+          <div><div style="font-size:.82rem;font-weight:600;">Geolocation</div><div style="font-size:.72rem;color:var(--green);">Operational</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:0 5vw 3rem;text-align:center;">
+      <a href="index.html" class="btn btn-ghost">← Back to Home</a>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+  <script src="js/main.js"></script>
+</body>
+</html>

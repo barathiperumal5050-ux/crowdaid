@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CrowdAid — Safety Briefing</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <script src="https://cdn.socket.io/4.6.2/socket.io.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a class="nav-logo" href="index.html">CROWD<span>AID</span></a>
+    <div class="nav-pill"><div class="live-dot"></div>ROOM LIVE</div>
+  </nav>
+
+  <div class="safety-page">
+    <div class="safety-card">
+      <div class="safety-header">
+        <div class="safety-icon-big">⚠️</div>
+        <div>
+          <h2 class="safety-htitle">HELPER <span>SAFETY</span> BRIEF</h2>
+          <div style="font-size:.8rem;color:var(--muted);">Read before entering the live room</div>
+        </div>
+      </div>
+
+      <!-- RULES -->
+      <ul class="rule-list">
+        <li class="rule-item">
+          <span class="rule-icon">🛑</span>
+          <div class="rule-text">
+            <b>Only help if YOU are safe.</b> Do not enter traffic zones, fire areas, or structurally unsafe buildings. Your life comes first.
+          </div>
+        </li>
+        <li class="rule-item">
+          <span class="rule-icon">📍</span>
+          <div class="rule-text">
+            <b>Your location is shared only inside this room.</b> It is permanently deleted the moment the room closes. No data is retained.
+          </div>
+        </li>
+        <li class="rule-item">
+          <span class="rule-icon">📵</span>
+          <div class="rule-text">
+            If you <b>stop moving for 2+ minutes</b> while in the room, CrowdAid will check if you're okay and notify your emergency contacts.
+          </div>
+        </li>
+        <li class="rule-item">
+          <span class="rule-icon">📲</span>
+          <div class="rule-text">
+            <b>No internet?</b> CrowdAid auto-switches to SMS fallback mode to continue coordinating nearby helpers.
+          </div>
+        </li>
+        <li class="rule-item">
+          <span class="rule-icon">🏥</span>
+          <div class="rule-text">
+            <b>Follow task assignments</b> in the room. Do only what's assigned to you. Do not attempt tasks beyond your skill level.
+          </div>
+        </li>
+      </ul>
+
+      <!-- LEGAL PROTECTION -->
+      <div class="law-box">
+        ⚖️ <b>Good Samaritan Law Protection:</b> In most countries, individuals who provide emergency assistance in good faith are legally protected from civil and criminal liability. You are covered when acting reasonably and within your capabilities. CrowdAid displays jurisdiction-specific information inside the room.
+      </div>
+
+      <!-- SMS FALLBACK NOTE -->
+      <div style="background:rgba(79,195,247,.04);border:1px solid rgba(79,195,247,.12);border-radius:10px;padding:.85rem 1rem;margin-bottom:1.5rem;font-size:.8rem;color:#8899BB;line-height:1.55;">
+        📡 <b style="color:var(--blue);">Offline SMS Fallback:</b> If your internet connection drops, this platform automatically sends SMS alerts to nearby registered volunteers and your emergency contacts — so coordination never stops.
+      </div>
+
+      <!-- ACTIONS -->
+      <button class="btn btn-red w-full btn-lg" id="enter-room-btn" style="justify-content:center;margin-bottom:.8rem;">
+        ✅ I Understand — Enter Live Room
+      </button>
+      <button class="btn btn-ghost w-full" id="stay-outside-btn" style="justify-content:center;font-size:.88rem;">
+        I'll coordinate from outside — View Dashboard
+      </button>
+
+      <p style="text-align:center;font-size:.75rem;color:var(--muted);margin-top:1.2rem;line-height:1.5;">
+        By entering, you confirm you've read and understood the safety guidelines.
+      </p>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+  <script src="js/main.js"></script>
+</body>
+</html>

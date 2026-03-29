@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CrowdAid — Emergency Crowd Coordination</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <script src="https://cdn.socket.io/4.6.2/socket.io.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <a class="nav-logo" href="index.html">CROWD<span>AID</span></a>
+    <div class="nav-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="about.html">How It Works</a>
+    </div>
+    <div class="nav-pill"><div class="live-dot"></div>SYSTEM LIVE</div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-glow"></div>
+    <div class="pulse-wrap">
+      <div class="pulse-ring"></div>
+      <div class="pulse-ring"></div>
+      <div class="pulse-ring"></div>
+      <div class="pulse-core">🚨</div>
+    </div>
+    <div class="land-tag">// Real-Time Emergency Crowd Coordination</div>
+    <h1 class="land-h1">TURN<br><em>PANIC</em><br>INTO ACTION</h1>
+    <p class="land-sub">When emergencies strike, bystanders freeze. CrowdAid coordinates everyone at the scene — before the ambulance arrives. No download. No registration. Just open and help.</p>
+    <div class="btn-group">
+      <a href="otp.html" class="btn btn-red">🚨 Report Emergency</a>
+      <a href="dashboard.html" class="btn btn-ghost">📊 View Dashboard</a>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section">
+    <div class="section-tag">// How It Works</div>
+    <h2 class="section-h2">From Witness to <em>Coordinator</em> in 30 Seconds</h2>
+    <div class="flow-grid">
+      <div class="flow-card">
+        <div class="flow-num">01</div>
+        <span class="flow-ico">📍</span>
+        <h3>Spot & Open</h3>
+        <p>Witness an emergency? Open CrowdAid in your browser. No app download needed.</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-card">
+        <div class="flow-num">02</div>
+        <span class="flow-ico">🔐</span>
+        <h3>Verify via OTP</h3>
+        <p>Enter your phone number. Get an OTP. Only real reporters can create rooms.</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-card">
+        <div class="flow-num">03</div>
+        <span class="flow-ico">📡</span>
+        <h3>Room Goes Live</h3>
+        <p>A live coordination room opens. Nearby people get silent alerts on their phones.</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-card">
+        <div class="flow-num">04</div>
+        <span class="flow-ico">✅</span>
+        <h3>Crowd Coordinates</h3>
+        <p>Tasks auto-assign. CPR, calling 911, AED search — everyone knows their role.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM vs SOLUTION -->
+  <section class="compare-section">
+    <div class="compare-grid">
+      <div class="compare-card bad">
+        <div class="compare-head">❌ Without CrowdAid</div>
+        <ul>
+          <li>Everyone assumes someone else called 911</li>
+          <li>No one knows who has CPR training</li>
+          <li>Crowd stands helpless for 8+ minutes</li>
+          <li>No AED is found even if one is nearby</li>
+          <li>Family has no idea what's happening</li>
+        </ul>
+      </div>
+      <div class="compare-card good">
+        <div class="compare-head">✅ With CrowdAid</div>
+        <ul>
+          <li>One person opens CrowdAid in 10 seconds</li>
+          <li>Nearby CPR-trained helpers get alerted</li>
+          <li>Task checklist eliminates confusion</li>
+          <li>AED location is found and retrieved</li>
+          <li>Family auto-notified with live location</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHALLENGES & SOLUTIONS -->
+  <section class="challenges-section">
+    <div class="section-tag">// Built To Be Trusted</div>
+    <h2 class="section-h2">Every Challenge. <em>Solved.</em></h2>
+    <div class="challenge-grid">
+      <div class="chal-card">
+        <div class="chal-icon">😬</div>
+        <h3>Fake Alerts</h3>
+        <p>OTP phone verification + community confirmation prevents any prank from going live.</p>
+        <div class="chal-tag">OTP + Dual Confirm</div>
+      </div>
+      <div class="chal-card">
+        <div class="chal-icon">📡</div>
+        <h3>No Internet</h3>
+        <p>Offline SMS fallback automatically activates in low-connectivity zones.</p>
+        <div class="chal-tag">SMS Fallback</div>
+      </div>
+      <div class="chal-card">
+        <div class="chal-icon">🛡️</div>
+        <h3>Helper Safety</h3>
+        <p>Safety briefing + inactivity check + Good Samaritan law protection displayed.</p>
+        <div class="chal-tag">Safety First Protocol</div>
+      </div>
+      <div class="chal-card">
+        <div class="chal-icon">🔐</div>
+        <h3>Privacy</h3>
+        <p>Zero passive tracking. Location shared only in active room. Auto-deleted on close.</p>
+        <div class="chal-tag">Zero Passive Tracking</div>
+      </div>
+      <div class="chal-card">
+        <div class="chal-icon">📲</div>
+        <h3>Family Unaware</h3>
+        <p>Emergency contacts auto-notified with live location when you're near an emergency.</p>
+        <div class="chal-tag">Auto Notify</div>
+      </div>
+      <div class="chal-card">
+        <div class="chal-icon">⏱️</div>
+        <h3>Time Pressure</h3>
+        <p>Live countdown + survival stats displayed to motivate immediate action.</p>
+        <div class="chal-tag">Urgency Engine</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-section">
+    <div class="stat-item"><span class="stat-n">2X</span><span class="stat-l">CPR Survival Rate</span></div>
+    <div class="stat-item"><span class="stat-n">8 min</span><span class="stat-l">Avg Ambulance ETA</span></div>
+    <div class="stat-item"><span class="stat-n">70%</span><span class="stat-l">Bystanders Freeze</span></div>
+    <div class="stat-item"><span class="stat-n">0 sec</span><span class="stat-l">Download Needed</span></div>
+    <div class="stat-item"><span class="stat-n">100%</span><span class="stat-l">Data Deleted After Room</span></div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2 class="cta-h">Ready to Save a Life?</h2>
+    <p class="cta-p">No download. No registration. Just open the platform and help coordinate.</p>
+    <a href="otp.html" class="btn btn-red btn-lg">🚨 Report an Emergency Now</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">CROWD<span>AID</span></div>
+    <p>Built to turn bystanders into first responders. Every second counts.</p>
+    <div class="footer-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="about.html">How It Works</a>
+      <a href="otp.html">Report Emergency</a>
+    </div>
+    <div class="footer-bottom">© 2025 CrowdAid. Zero data sold. Zero ads. Zero passive tracking.</div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
