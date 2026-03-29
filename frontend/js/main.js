@@ -6,8 +6,8 @@
 'use strict';
 
 // ── CONFIG — change this to your backend URL when deployed ──
-const API = 'http://localhost:7000/api';
-const SOCKET_URL = 'http://localhost:7000';
+const API = 'https://crowdaid-production.up.railway.app/api';
+const SOCKET_URL = 'https://crowdaid-production.up.railway.app';
 
 // ── GLOBALS ──
 let socket = null;
